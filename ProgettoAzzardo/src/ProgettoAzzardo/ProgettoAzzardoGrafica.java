@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.events.MouseTrackAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseAdapter;
 
 public class ProgettoAzzardoGrafica {
 
@@ -96,6 +97,27 @@ public class ProgettoAzzardoGrafica {
 		lblNewLabel.setText("NARDI'S SLOT MACHINE");
 		
 		Label lblSpin = new Label(shell, SWT.BORDER);
+		lblSpin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				lblSpin.setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
+				for(int i=0; i<10; i++){
+					String numero = Integer.toString(i);
+					lblSimbolo1.setText(numero);
+					lblSimbolo2.setText(numero);
+					lblSimbolo3.setText(numero);
+						try {
+						    Thread.sleep(100);                 //1000 milliseconds is one second.
+						} catch(InterruptedException ex) {
+						    Thread.currentThread().interrupt();
+						};
+				}
+			}
+			
+			public void mouseUp(MouseEvent e) {
+				lblSpin.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+			}
+		});
 		lblSpin.setAlignment(SWT.CENTER);
 		lblSpin.addMouseTrackListener(new MouseTrackAdapter() {
 			@Override
