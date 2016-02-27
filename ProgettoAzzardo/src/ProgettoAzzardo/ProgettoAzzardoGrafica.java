@@ -127,7 +127,7 @@ public class ProgettoAzzardoGrafica {
 			public void mouseExit(MouseEvent e) {
 				lblSpin.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 			}
-		});
+		});//	quanto forte è nardi???? 
 		lblSpin.setFont(SWTResourceManager.getFont("Segoe UI", 14, SWT.BOLD));
 		lblSpin.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSpin.setImage(SWTResourceManager.getImage(ProgettoAzzardoGrafica.class, "/ProgettoAzzardo/PlayNow.png"));
