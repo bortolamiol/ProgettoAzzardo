@@ -128,7 +128,7 @@ public class ProgettoAzzardoGrafica {
 							System.out.println(i);
 							Display.getDefault().asyncExec(new Runnable() {
 								public void run() {
-
+										//ora le immagini cambiano
 									lblSimbolo1.setImage(immagini[n]);
 									lblSimbolo2.setImage(immagini[n]);
 									lblSimbolo3.setImage(immagini[n]);
