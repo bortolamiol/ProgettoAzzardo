@@ -9,6 +9,7 @@ import java.awt.Color;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -17,7 +18,9 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseAdapter;
 
 public class ProgettoAzzardoGrafica {
-
+	 Image[] immagini =new Image[7];
+	
+	
 	protected Shell shell;
 
 	/**
@@ -25,6 +28,11 @@ public class ProgettoAzzardoGrafica {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		
+		
+		
+		
 		try {
 			ProgettoAzzardoGrafica window = new ProgettoAzzardoGrafica();
 			window.open();
@@ -56,6 +64,20 @@ public class ProgettoAzzardoGrafica {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 		
+		 //diamo ad ogni spazio del vettore un'immagine
+	
+		immagini[0] = new Image(null, "immagini/gatto1.jpg");
+		immagini[1] = new Image(null, "immagini/gatto2.jpg");
+		immagini[2] = new Image(null, "immagini/gatto3.png");
+		immagini[3] = new Image(null, "immagini/gatto4.jpg");
+		immagini[4] = new Image(null, "immagini/reginato.jpg");
+		immagini[5] = new Image(null, "immagini/reginatocapelli.jpg");
+		immagini[6] = new Image(null, "immagini/verde.jpg");
+		
+		
+		 
+
+		 //fine dichiarazione immagine
 		Button btnReset = new Button(shell, SWT.NONE);
 		btnReset.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -101,16 +123,18 @@ public class ProgettoAzzardoGrafica {
 			@Override
 			public void mouseDown(MouseEvent e) {
 				lblSpin.setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
-				for(int i=0; i<10; i++){
+				for(int i=0; i<7; i++){
 					String numero = Integer.toString(i);
-					lblSimbolo1.setText(numero);
-					lblSimbolo2.setText(numero);
-					lblSimbolo3.setText(numero);
-						try {
-						    Thread.sleep(100);                 //1000 milliseconds is one second.
-						} catch(InterruptedException ex) {
-						    Thread.currentThread().interrupt();
-						};
+					
+					System.out.println(i);
+					lblSimbolo1.setImage(immagini[i]);
+					lblSimbolo2.setImage(immagini[i]);
+					lblSimbolo3.setImage(immagini[i]);
+					try {
+					    Thread.sleep(1000);                 //1000 milliseconds is one second.
+					} catch(InterruptedException ex) {
+					    Thread.currentThread().interrupt();
+					}
 				}
 			}
 			
